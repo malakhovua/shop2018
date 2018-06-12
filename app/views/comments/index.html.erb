@@ -1,0 +1,33 @@
+<ul id="comments-list">
+  <% @comments.each do |com| %>
+    <% next unless com.persisted? %>
+    <li>
+      <%= com.nick %> :
+      <%= com.text %>
+      <%= link_to 'Delete', ('/products/' + @product.id.to_s + '/comments/' + com.id.to_s) %>
+    </li>
+  <% end %>
+</ul>
+
+
+<ul class="comment-errors">
+  <% if @comment.errors.present? %>
+    <% @comment.errors.messages.each do |field, messages| %>
+      <li><%= field %>: <%= messages.join('; ') %></li>
+    <% end %>
+  <% end %>
+</ul>
+
+
+<%= form_for [@product, @comment], remote:true  do |f| %>
+  <%= f.text_field :nick, placeholder: 'Nick' %>
+  <br>
+  <br>
+  <%= f.text_area :text, placeholder: 'Message' %>
+  <br>
+  <%= f.submit %>
+<% end %>
+
+<a href="" class="test">CLICK ME!!!</a>
+<br>
+<span class="click-result">0</span>

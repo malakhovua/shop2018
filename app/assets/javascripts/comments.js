@@ -17,6 +17,7 @@ $(function () {
         console.log($form.attr('action'));
         console.log($form.attr('method'));
 
+ 
         var url = $form.attr('action');
         var method = $form.attr('method');
         $.ajax(url,{

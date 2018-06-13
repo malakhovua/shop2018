@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  #Action /
+  #Action / user 1
   def index
   end
 end

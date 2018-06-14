@@ -3,8 +3,10 @@ class ProductsController < ApplicationController
   skip_before_action :before_some_method, except: [:index]
 
   def index
-    puts 'ProductsController => index'
-    @products = Product.all
+    #@per_page = params[:per_page].present? ? params[:per_page].to_i : 5
+    @page = params[:page].present? ? params[:page].to_i : 1
+
+    @products = Product.page(@page)
   end
 
   def show
@@ -20,6 +22,7 @@ class ProductsController < ApplicationController
     @product.price = params[:product][:price]
     @product.name  = params[:product][:name]
     @product.save
+
 
     redirect_to products_path
   end

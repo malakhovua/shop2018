@@ -27,6 +27,6 @@
 .byebug_history
 
 # Ignore master key for decrypting credentials and more.
-/config/master.key
-.idea/*
-.idea/workspace.xml
+/config/master.key/
+/.idea/*
+/.idea/workspace.xml

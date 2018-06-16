@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   before_action :set_product
 
+
   def index
     # binding.pry
     @comments = @product.comments

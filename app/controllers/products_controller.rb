@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
 
   skip_before_action :before_some_method, except: [:index]
+  skip_before_action  :authenticate_user!
 
   def index
     #@per_page = params[:per_page].present? ? params[:per_page].to_i : 5

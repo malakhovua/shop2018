@@ -9,14 +9,14 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
-
 <body>
+<header>
+<%= render partial: 'layouts/menu'%>
+</header>
 
+<div class="container">
+  <%= yield %>
+</div>
 
-
-<h1>
-  <%= link_to 'E-Shop', root_path %>
-</h1>
-<%= yield %>
 </body>
 </html>

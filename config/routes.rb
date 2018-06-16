@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'home#index'
-
+  resources :users, only: [:update] do
+    collection do
+      get :me
+    end
+  end
 
   resources :products do
     get '/likes', to: 'c#a'

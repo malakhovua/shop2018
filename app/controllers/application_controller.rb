@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
 
-
+  before_action :authenticate_user!
   before_action :before_some_method
   after_action  :after_some_method
   # around_action :around_some_method

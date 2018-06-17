@@ -17,7 +17,7 @@
 // require_tree .
 //= require comments
 //= require products
-
+//= require users
 
 
 

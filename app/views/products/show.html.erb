@@ -1,3 +1,5 @@
 <h3><%=@product.name%>: <%=price_format(@product.price)%></h3>
 
+<%= link_to 'Edit' , edit_product_path(@product), class: 'btn btn-primary'%>
+<br>
 <%= link_to 'Show comments' , product_comments_path(@product)%>

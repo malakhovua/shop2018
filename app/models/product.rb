@@ -1,5 +1,7 @@
 class Product < ApplicationRecord
   has_many :comments
+  has_many :images, as: :imagable
+
 
   validates :price, :name, presence: true
   validates_uniqueness_of :name

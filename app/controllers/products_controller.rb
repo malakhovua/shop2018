@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
-
-  skip_before_action :before_some_method, except: [:index]
-  skip_before_action  :authenticate_user!
+  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  #skip_before_action :before_some_method, except: [:index]
+  #skip_before_action  :authenticate_user!
 
   def index
     #@per_page = params[:per_page].present? ? params[:per_page].to_i : 5
@@ -11,25 +11,29 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.find(params[:id])
+
   end
 
   def new
     @product = Product.new
   end
 
-  def create
-    @product = Product.new
-    @product.price = params[:product][:price]
-    @product.name  = params[:product][:name]
-    @product.save
+  def edit
 
+  end
+
+  def update
+    @product.update(product_params)
+    redirect_to @product
+  end
+
+  def create
+    Product.create(product_params)
 
     redirect_to products_path
   end
 
   def destroy
-    @product = Product.find(params[:id])
     @product.destroy
 
     if request.xhr?
@@ -38,4 +42,15 @@ class ProductsController < ApplicationController
       redirect_to products_path
     end
   end
+
+  private
+
+  def set_product
+    @product = Product.find(params[:id])
+  end
+
+  def product_params
+    params.require(:product).permit(:name, :price)
+  end
+
 end

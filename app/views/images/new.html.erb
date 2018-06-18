@@ -1,0 +1,5 @@
+<%= form_for [@product, @image] do |f|%>
+<%= f.file_field :file %>
+  <br>
+  <%= f.submit 'Add' %>
+<% end %>

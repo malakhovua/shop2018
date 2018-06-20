@@ -1,4 +1,4 @@
-<h3><%=@product.name%>: <%=price_format(@product.price)%></h3>
+<h3><%= @product.name %>: <%= @product.price %> $</h3>
 
 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
@@ -10,19 +10,13 @@
 
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
-    <div class="item active">
-      <img src="..." alt="...">
-      <div class="carousel-caption">
-        ...
+    <% @product.images.each_with_index do |image, index| %>
+      <div class="item <%= 'active' if index == 0 %>">
+        <%= image_tag(image.file_url, class: 'img-responsive') %>
+        <div class="carousel-caption">
+        </div>
       </div>
-    </div>
-    <div class="item">
-      <img src="..." alt="...">
-      <div class="carousel-caption">
-        ...
-      </div>
-    </div>
-    ...
+    <% end %>
   </div>
 
   <!-- Controls -->
@@ -36,21 +30,6 @@
   </a>
 </div>
 
-
-
-
-
-
-
-<ul>
-  <% @product.images.each do |image| %>
-  <li>
-    <%= image_tag(image.file_url, style: 'max-width: 150px')%>
-  </li>
-    <br>
-  <% end %>
-</ul>
-
-<%= link_to 'Edit' , edit_product_path(@product), class: 'btn btn-primary'%>
+<%= link_to 'Edit', edit_product_path(@product), class: 'btn btn-primary' %>
 <br>
-<%= link_to 'Show comments' , product_comments_path(@product)%>
+<%= link_to 'Show comments', product_comments_path(@product) %>

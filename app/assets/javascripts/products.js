@@ -1,9 +1,13 @@
 
-$(function () {
-  console.log('DOCUMENT READY!')
-});
 $(document).on('turbolinks:load',function () {
-    console.log('turbolinks load!')
+    $('a.remove-image').click(function (event) {
+        var $target = $(event.currentTarget);
+        var $block = $target.closest('.nested-field');
+        $block.find('._destroy');
+        $block.find('._destroy').val('1');
+        $block.hide();
+        return false;
+    })
 })
 
 

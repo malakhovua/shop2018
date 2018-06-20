@@ -2,5 +2,8 @@
 <%= form_for @product do |f| %>
   <%=f.text_field :price, placeholder: 'price' %>
   <%=f.text_field :name,  placeholder:  'name'%>
+  <%=f.fields_for @product.images.new do |img_f|%>
+  <%= img_f.file_field :file  %>
+  <% end %>
   <%=f.submit 'Create' %>
 <% end %>

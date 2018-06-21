@@ -11,6 +11,7 @@
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
     <% @product.images.each_with_index do |image, index| %>
+      <% next unless image.file_url %>
       <div class="item <%= 'active' if index == 0 %>">
         <%= image_tag(image.file_url, class: 'img-responsive') %>
         <div class="carousel-caption">

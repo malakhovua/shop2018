@@ -1,16 +1,14 @@
 
-$(document).on('turbolinks:load',function () {
+$(document).on('turbolinks:load',function() {
     $('a.remove-image').click(function (event) {
         var $target = $(event.currentTarget);
-        var $block = $target.closest('.nested-field');
+        var $block = $target.closest('.nested-fields');
         $block.find('._destroy');
         $block.find('._destroy').val('1');
         $block.hide();
         return false;
     })
-})
-
-
+});
 
 
 $(document).on('turbolinks:load',function() {
@@ -44,6 +42,29 @@ $(document).on('turbolinks:load',function() {
 
         return false;
     });
+
+    $('.add-more-image').click(function(event) {
+        $('.nested-fields')
+        var $block = $('<div class="nested-fields"></div>');
+        var $res = $block.append($($('.nested-fields')[0]).html());
+
+        _.each($res.find('input'), function(elem) {
+            var $elem = $(elem);
+            var old_name = $elem.attr('name');
+            var new_name = old_name.split('][');
+            new_name[1] = Date.now();
+            new_name = new_name.join('][');
+
+            $elem.attr('name', new_name);
+        });
+
+        $res.find('img').remove();
+
+        $( $res ).insertAfter( $('.nested-fields')[0] );
+
+        return false;
+    });
+
 });
 
 

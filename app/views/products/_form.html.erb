@@ -5,5 +5,8 @@
   <%=f.fields_for :images do |img_f|%>
   <%= render 'image_fields', f: img_f %>
   <% end %>
+  <div class="links">
+    <%= link_to_add_association 'add image', f, :images %>
+  </div>
   <%=f.submit 'Create' %>
 <% end %>

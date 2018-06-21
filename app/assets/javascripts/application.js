@@ -13,6 +13,7 @@
 
 //= require jquery
 //= require jquery_ujs
+//= require underscore
 //= require turbolinks
 //= require cocoon
 // require_tree .

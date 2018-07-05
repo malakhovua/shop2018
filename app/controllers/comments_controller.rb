@@ -1,16 +1,22 @@
 class CommentsController < ApplicationController
   include Productable
 
-
   def index
     # binding.pry
     @comments = @product.comments
     @comment = @product.comments.new
   end
 
+  def destroy
+    @comment = @product.comments.find_by(id: params[:id], user: current_user)
+    @comment.destroy if @comment.present?
+    head :no_content
+  end
+
   def create
     # binding.pry
     @comment = @product.comments.build(comment_params)
+    @comment.user = current_user
     if @comment.save
       if request.xhr?
         render json: @comment
@@ -29,16 +35,9 @@ class CommentsController < ApplicationController
 
   end
 
-  def destroy
-    @comment = Comment.find(params[:id])
-    @comment.destroy
-
-    redirect_to product_comments_path
-  end
-
   private
 
   def comment_params
-    params.require(:comment).permit(:nick, :text)
+    params.require(:comment).permit(:text)
   end
 end

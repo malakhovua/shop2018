@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'home#index'
+
   resources :users, only: [:update] do
     collection do
       get :me
@@ -11,7 +12,7 @@ Rails.application.routes.draw do
     get '/likes', to: 'c#a'
     collection do
       get '/likes_collection', to: 'c#a'
-      get :my
+      get :my # => /products/my
     end
     member do
       get :details
@@ -19,7 +20,7 @@ Rails.application.routes.draw do
 
     resources :comments
     resources :images
-  end
 
+  end
 
 end

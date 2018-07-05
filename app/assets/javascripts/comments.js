@@ -1,3 +1,9 @@
+$(function () {
+    window.WsClient = new WebSocket('ws://localhost:8080');
+    WsClient.onmessage = function (response) {
+        console.log(JSON.parse(response.data));
+    }
+});
 $(document).on('turbolinks:load',function() {
     // console.log($('#new_comment'));
     $('button.test').click(function() {
@@ -10,7 +16,8 @@ $(document).on('turbolinks:load',function() {
 });
 
 $(document).on('turbolinks:load',function() {
-    $('form#new_comment').on('ajax:success', function(event, response, status) {
+
+    /*$('form#new_comment').on('ajax:success', function(event, response, status) {
 
         var $form = $(event.currentTarget);
         console.log(response);
@@ -32,5 +39,5 @@ $(document).on('turbolinks:load',function() {
             $el.appendTo('#comments-list');
             $form.find('[name="comment[text]"]').val('');
         }
-    })
+    })*/
 });

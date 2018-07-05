@@ -3,5 +3,6 @@
   <%= f.hidden_field :_destroy, class: '_destroy' %>
   <br>
   <%= image_tag(f.object.file_url, width: '100') if f.object.file.present? %>
-  <a href="#" class="remove-image">remove image</a>
+<!--  <a href="#" class="remove-image">remove image</a>-->
+  <%= link_to_remove_association 'remove img', f %>
 </div>

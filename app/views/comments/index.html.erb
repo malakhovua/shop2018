@@ -2,7 +2,7 @@
   <% @comments.each do |com| %>
     <% next unless com.persisted? %>
     <li>
-      <%= com.nick %> :
+      <%= com.user.present? ? com.user.full_name : 'Guest' %> :
       <%= com.text %>
       <%= link_to 'Delete', ('/products/' + @product.id.to_s + '/comments/' + com.id.to_s) %>
     </li>
@@ -20,8 +20,6 @@
 
 
 <%= form_for [@product, @comment], remote:true  do |f| %>
-  <%= f.text_field :nick, placeholder: 'Nick' %>
-  <br>
   <br>
   <%= f.text_area :text, placeholder: 'Message' %>
   <br>

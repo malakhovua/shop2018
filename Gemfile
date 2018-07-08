@@ -88,3 +88,8 @@ gem 'cocoon'
 gem 'underscore-rails'
 gem 'em-websocket', '~> 0.5.1'
 gem 'bunny', '~> 2.4'
+
+gem 'pusher'
+gem 'rails-observers', github: 'rails/rails-observers'
+
+gem 'sidekiq'

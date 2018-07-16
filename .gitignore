@@ -31,4 +31,5 @@
 /.idea/*
 /.idea/workspace.xml
 .idea
-.public
+
+public

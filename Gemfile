@@ -45,10 +45,11 @@ group :development, :test do
   gem 'pry-rails'
   gem 'pry-nav'
   gem 'awesome_print'
-  # gem 'jquery'
-  # gem 'jquery-rails'
-  # gem 'yarn', '~> 0.1.1'
-  # gem 'rails-ujs', '~> 0.1.0'
+  gem 'jquery'
+  gem 'jquery-rails'
+  gem 'yarn', '~> 0.1.1'
+  gem 'rails-ujs', '~> 0.1.0'
+
 end
 
 group :development do

@@ -13,7 +13,7 @@ class Product < ApplicationRecord
 
   accepts_nested_attributes_for :images, allow_destroy: true
 
-  before_destroy :ensure_not_referenced_by_any_line_item
+  # before_destroy :ensure_not_referenced_by_any_line_item
 
   validates :price, :name, presence: true
   validates_uniqueness_of :name

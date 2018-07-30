@@ -1,26 +1,42 @@
-<ul>
-<% @products.each do |product| %>
+<!--<div>
+<ul class="hor_nav">
+<%# @products.each do |product| %>
+    <div class="item_list">
   <li>
-    <%= link_to product.name, product_path(id: product.id)%>
-    <%=price_format(product.price) %>
-    |
-<!--    <%#= form_for product, method: :delete do |f|  %>
-    <%#= f.submit 'Delete'%>
-    <%# end %>-->
-<!--
-    <%#= link_to 'Delete', product_path(product), method: :delete %>
--->
-
-    <a class="delete-product" href="<%= product_path(product) %>" class="test">Delete</a>
-
+    <div class="prod_group">
+    <%#= link_to product.name, product_path(id: product.id)%>
+    <%#=price_format(product.price) %>
+    </div>
+    <div>
+    <%#= button_to 'Add to Cart', line_items_path(product_id: product) %>
+    </div>
   </li>
-<%end %>
+<%#end %>
+  </div>
 </ul>
+</div>
+
+<%#= paginate @products, :theme => 'twitter-bootstrap-3'%>
+<br>
+<%#= link_to  'New', new_product_path %>
+<!---->
+
+
+    <% @products.each do |product| %>
+
+
+            <% %>
+            <%= link_to product.name, product_path(id: product.id)%>
+            <%=price_format(product.price) %>
+            <%= button_to 'Add to Cart', line_items_path(product_id: product) %>
+
+    <%end %>
+
 
 <%= paginate @products, :theme => 'twitter-bootstrap-3'%>
-
 <br>
 <%= link_to  'New', new_product_path %>
+-->
 
 
 

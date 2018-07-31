@@ -24,19 +24,30 @@
 
     <% @products.each do |product| %>
 
+  <div class="block_prod">
 
-            <% %>
+            <div class="prod_name">
             <%= link_to product.name, product_path(id: product.id)%>
-            <%=price_format(product.price) %>
+            </div>
+            <div>
+              <%= truncate(strip_tags(product.description), length: 80) %>
+            </div>
+            <did class = "prod_price">
+            <%= 'price: ' + price_format(product.price) %>
+            </did>
+            <div>
             <%= button_to 'Add to Cart', line_items_path(product_id: product) %>
+            </div>
+  </div>
 
-    <%end %>
+    <% end %>
 
 
 <%= paginate @products, :theme => 'twitter-bootstrap-3'%>
-<br>
-<%= link_to  'New', new_product_path %>
--->
+
+<div class="create_prod">
+<%= link_to  'Create New Product', new_product_path %>
+</div>
 
 
 

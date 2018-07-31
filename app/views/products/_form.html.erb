@@ -1,6 +1,10 @@
 <%= form_for @product do |f| %>
-  <%=f.text_field :price, placeholder: 'price' %>
   <%=f.text_field :name,  placeholder:  'name'%>
+  <%=f.text_field :price, placeholder: 'price' %>
+  <br>
+  <br>
+  <%= f.text_area :description, rows:2 , cols: 60%>
+
   <%=f.fields_for :images do |img_f|%>
     <%= render 'image_fields', f: img_f %>
   <% end %>

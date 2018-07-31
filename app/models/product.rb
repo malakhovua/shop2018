@@ -15,7 +15,7 @@ class Product < ApplicationRecord
 
   # before_destroy :ensure_not_referenced_by_any_line_item
 
-  validates :price, :name, presence: true
+  validates :price, :description, :name, presence: true
   validates_uniqueness_of :name
 
   before_validation do

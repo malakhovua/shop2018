@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
    before_action :set_product, only: [:show, :edit, :update, :destroy]
   #skip_before_action :before_some_method, except: [:index]
-  skip_before_action  :authenticate_user!
+  # skip_before_action  :authenticate_user!
 
 
   def index

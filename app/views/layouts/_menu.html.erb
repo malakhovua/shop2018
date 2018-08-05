@@ -3,9 +3,9 @@
     <ul class="nav navbar-nav ml-lg-5">
       <li class="nav-item"><a class="nav-link"<%= link_to 'Home', root_path %></a></li>
       <li class="nav-item"><a class="nav-link" h<%= link_to 'Products', products_path %></a></li>
-      <li class="nav-item"><a class="nav-link" href="#">Link</a></li>
-      <li class="nav-item"><a class="nav-link" href="#">Link</a></li>
-      <li class="nav-item"><a class="nav-link" href="#">Link</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">Qurstions</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">News</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">Contucts</a></li>
       <li class="nav-item"><%= link_to 'My Profile', me_users_path %></li>
         <% if user_signed_in? %>
         <li class="nav-item"> <%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>

@@ -6,6 +6,7 @@
     <td><%= item.quantity %> &times;</td>
     <td><%= item.product.name %> </td>
     <td class="item_price"><%=number_to_currency(item.total_price)%></td>
+    <td> <%= button_to 'delete', item, method: :delete %></td>
   </tr>
   <% end %>
 

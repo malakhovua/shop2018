@@ -6,9 +6,20 @@
   .item_price, .total_line {
     text-align: right;
     color:  red;
+    text-align: left;
   }
 
 .total_line {
   font-weight: bold;
   border-top: 1px solid #595;
+}
+
+.price {
+  text-align: left;
+  color: green;
+}
+
+.head {
+  text-align: left;
+  text-decoration-color: blue;
 }

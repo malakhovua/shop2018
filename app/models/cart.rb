@@ -19,10 +19,8 @@ class Cart < ApplicationRecord
 
  current_item = line_items.find_by(product_id: product.id)
 
- if current_item
-  current_item.quantity -= 1
- else
-  current_item = line_items.build(product_id: product.id)
+ if current_item and current_item.quantity != 0
+        current_item.quantity -= 1
  end
  current_item
 

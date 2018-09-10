@@ -18,6 +18,10 @@
         <% else %>
         <li class="nav-item"><%= link_to 'Login', new_user_session_path %></li>
         <li class="nav-item"><%= link_to 'Registration', new_user_registration_path %></li>
+        <% @cart = Cart.find(request.session_options[:id]) %>
+        <li class="nav-item"><%= @cart.total_price %></li>
+        </section>)</li>
+
         <% end %>
 
         </ul>

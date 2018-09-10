@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :commented_products, through: :comments,
            source: :products
+           
 
   def full_name
     "#{first_name} #{last_name}"

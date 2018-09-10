@@ -24,7 +24,7 @@ class LineItemsController < ApplicationController
   def edit
   end
 
-  def remove_item 
+  def remove_item
 
     product = Product.find(params[:product_id])
     @line_item = @cart.remove_product(product)
@@ -45,7 +45,11 @@ class LineItemsController < ApplicationController
   # POST /line_items.json
   def create
     product = Product.find(params[:product_id])
-    @line_item = @cart.add_product(product)
+    if params[:remove]
+       @line_item = @cart.remove_product(product)
+    else
+       @line_item = @cart.add_product(product)
+    end
 
     respond_to do |format|
       if @line_item.save

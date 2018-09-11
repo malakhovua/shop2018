@@ -1,4 +1,6 @@
-<h3><%= @product.name %>: <%= @product.price %> $</h3>
+<h3><%= @product.name %>:
+  <%= @product.price %>
+  $</h3>
 
 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
@@ -12,25 +14,24 @@
   <div class="carousel-inner" role="listbox">
     <% @product.images.each_with_index do |image, index| %>
       <% next unless image.file_url %>
-      <div class="item <%= 'active' if index == 0 %>">
-        <%= image_tag(image.file_url, class: 'img-responsive') %>
-        <div class="carousel-caption">
+        <div class="item <%= 'active' if index == 0 %>">
+          <%= image_tag(image.file_url, class: 'img-responsive') %>
+          <div class="carousel-caption"></div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
+
+    <!-- Controls -->
+    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
   </div>
 
-  <!-- Controls -->
-  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
-
-<%= link_to 'Edit', edit_product_path(@product), class: 'btn btn-primary' %>
-<br>
-<%= link_to 'Show comments', product_comments_path(@product) %>
+  <%= link_to 'Edit', edit_product_path(@product), class: 'btn btn-primary' %>
+  <br>
+  <%= link_to 'Show comments', product_comments_path(@product) %>

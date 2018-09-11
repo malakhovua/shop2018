@@ -25,6 +25,7 @@ class CartsController < ApplicationController
   # POST /carts
   # POST /carts.json
   def create
+
     @cart = Cart.new(cart_params)
 
     respond_to do |format|
@@ -66,6 +67,7 @@ class CartsController < ApplicationController
   end
 
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_cart
       @cart = Cart.find(params[:id])

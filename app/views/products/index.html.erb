@@ -1,28 +1,4 @@
-<!--<div>
-<ul class="hor_nav">
-<%# @products.each do |product| %>
-    <div class="item_list">
-  <li>
-    <div class="prod_group">
-    <%#= link_to product.name, product_path(id: product.id)%>
-    <%#=price_format(product.price) %>
-    </div>
-    <div>
-    <%#= button_to 'Add to Cart', line_items_path(product_id: product) %>
-    </div>
-  </li>
-<%#end %>
-  </div>
-</ul>
-</div>
-
-<%#= paginate @products, :theme => 'twitter-bootstrap-3'%>
-<br>
-<%#= link_to  'New', new_product_path %>
-<!---->
-
-
-    <% @products.each do |product| %>
+<% @products.each do |product| %>
 
 <div class="block_prod">
 
@@ -36,7 +12,8 @@
     <%= 'price: ' + price_format(product.price) %>
   </did>
   <div>
-    <%= button_to 'Add to Cart', line_items_path(product_id: product) %>
+    <%= button_to 'Add to Cart', line_items_path(product_id: product),
+    remote: true %>
   </div>
 </div>
 

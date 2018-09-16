@@ -17,6 +17,13 @@
 <%= render partial: 'layouts/menu'%>
 </header>
 
+<!-- <div id = "cart"
+<% if @cart.line_items.empty? %>
+style ="display: none">
+<% end %>
+<%= render(@cart) %>
+</div> -->
+
 <div class="container">
   <%= yield %>
 </div>

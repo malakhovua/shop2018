@@ -12,6 +12,7 @@
 //
 
 //= require jquery
+//= require jquery-ui
 //= require jquery_ujs
 //= require turbolinks
 //= require cocoon
@@ -19,6 +20,3 @@
 //= require comments
 //= require products
 //= require users
-
-
-

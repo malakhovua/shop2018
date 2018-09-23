@@ -26,8 +26,10 @@
         </ul>
   </div>
 </nav>
-<div id = "cart">
-  <%if @cart %>
-  <%= render @cart %>
+<div id = "cart"
+  <% if @cart.line_items.empty? %>
+  style media="display: none"
   <% end %>
+  >
+  <%= render @cart %>
 </div>

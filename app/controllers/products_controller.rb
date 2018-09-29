@@ -25,8 +25,22 @@ class ProductsController < ApplicationController
   end
 
   def update
-    @product.update(product_params)
-    redirect_to @product
+    # @product.update(product_params)
+    # redirect_to @product
+    respond_to do |format|
+      if @product.update(product_params)
+      format.html { redirect_to @product,
+      notice: 'Product was successfully updated.' }
+      format.json { render :show, status: :ok, location: @product }
+      @products = Product.all
+      ActionCable.server.broadcast 'products',
+      html: render_to_string('products/index', layout: false)
+      else
+      format.html { render :edit }
+      format.json { render json: @product.errors,
+      status: :unprocessable_entity }
+      end
+    end
   end
 
   def create

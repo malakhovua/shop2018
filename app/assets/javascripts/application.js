@@ -11,12 +11,17 @@
 // about supported directives.
 //
 
-//= require jquery
 //= require jquery-ui
-//= require jquery_ujs
-//= require turbolinks
+//= require jquery
+//= require rails-ujs
+//= require activestorage
 //= require cocoon
-// require_tree .
-//= require comments
+//= require turbolinks
+//= require_tree .
 //= require products
+//= require comments
 //= require users
+
+
+
+

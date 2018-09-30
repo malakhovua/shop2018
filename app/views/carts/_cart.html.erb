@@ -1,4 +1,5 @@
 <% unless cart.line_items.empty?%>
+<div class = "carts_cable">
 <h2>Your Cart</h2>
 <table>
   <tr>
@@ -19,3 +20,4 @@
 <%= button_to 'Empty cart', @cart, method: :delete,
 data: {confirm: 'Are you sure?'}%>
 <% end %>
+</div>

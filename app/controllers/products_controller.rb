@@ -32,9 +32,15 @@ class ProductsController < ApplicationController
       format.html { redirect_to @product,
       notice: 'Product was successfully updated.' }
       format.json { render :show, status: :ok, location: @product }
+     
       @products = Product.all
       ActionCable.server.broadcast 'products',
       html: render_to_string('products/index', layout: false)
+
+      @carts = Cart.all
+      ActionCable.server.broadcast 'carts',
+      html: render_to_string('carts/show', layout: false)
+
       else
       format.html { render :edit }
       format.json { render json: @product.errors,
@@ -47,6 +53,7 @@ class ProductsController < ApplicationController
     Product.create(product_params)
 
     redirect_to products_path
+    
   end
 
   def destroy

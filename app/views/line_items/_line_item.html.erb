@@ -8,7 +8,10 @@
   <td><%= line_item.product.name %> </td>
   <td class="price"><%= number_to_currency(line_item.product.price) %></td>
   <td class="item_price"><%=number_to_currency(line_item.total_price)%></td>
-  <td> <%= button_to 'delete', line_item, method: :delete %></td>
-  <td><%= button_to '+', line_items_path(product_id: line_item.product) %></td>
-  <td><%= button_to '-', line_items_path(product_id: line_item.product, remove:true) %></td>
+  <td> <%= button_to 'delete', line_item, method: :delete,
+    remote: true %></td>
+  <td><%= button_to '+', line_items_path(product_id: line_item.product),
+    remote: true %></td>
+  <td><%= button_to '-', line_items_path(product_id: line_item.product, remove:true),
+    remote: true %></td>
 </tr>

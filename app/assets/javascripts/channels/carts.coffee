@@ -1,4 +1,4 @@
-App.products = App.cable.subscriptions.create "ProductsChannel",
+App.carts = App.cable.subscriptions.create "CartsChannel",
   connected: ->
     # Called when the subscription is ready for use on the server
 
@@ -6,4 +6,4 @@ App.products = App.cable.subscriptions.create "ProductsChannel",
     # Called when the subscription has been terminated by the server
 
   received: (data) ->
-    $(".products_cable").html(data.html)
+    $(".carts_cable").html(data.html)

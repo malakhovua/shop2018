@@ -47,12 +47,15 @@ class LineItemsController < ApplicationController
   def create
 
     product = Product.find(params[:product_id])
-    if params[:remove]
+    
+    if params[:remove] then
        @line_item = @cart.remove_product(product)
+    elsif params[:delete] then 
+      @line_item = @cart.delete_product(product)
     else
-       @line_item = @cart.add_product(product)
+      @line_item = @cart.add_product(product)
     end
-
+    
     respond_to do |format|
       if @line_item.save
         format.html { redirect_to products_url}

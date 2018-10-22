@@ -1,4 +1,4 @@
-<%= form_with(model: order, local: true) do |form| %>
+<%= form_for(order) do |f| %>
   <% if order.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
@@ -12,27 +12,27 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, size: 40 %>  
+    <%= f.label :name %>
+    <%= f.text_field :name, size: 40 %>  
   </div>
 
   <div class="field">
-    <%= form.label :address %>
-    <%= form.text_area :address, rows: 3, cols: 40 %>
+    <%= f.label :address %>
+    <%= f.text_area :address, rows: 3, cols: 40 %>
   </div>
 
   <div class="field">
-    <%= form.label :email %>
-    <%= form.email_field :e_mail, size: 40 %>
+    <%= f.label :email %>
+    <%= f.email_field :e_mail, size: 40 %>
   </div>
 
   <div class="field">
-    <%= form.label :pay_type %>
-    <%= form.select :pay_type, Order.pay_types.keys,
+    <%= f.label :pay_type %>
+    <%= f.select :pay_type, Order.pay_types.keys,
                                      prompt: 'Select a payment method' %>
   </div>
 
   <div class="actions">
-    <%= form.submit 'Place Order' %>
+    <%= f.submit 'Place Order' %>
   </div>
 <% end %>

@@ -15,5 +15,10 @@
   <%= @order.pay_type %>
 </p>
 
+<p>
+  <strong> email:</strong>
+  <%= @order.e_mail %>
+</p>
+
 <%= link_to 'Edit', edit_order_path(@order) %> |
 <%= link_to 'Back', orders_path %>

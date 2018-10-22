@@ -34,7 +34,7 @@ class OrdersController < ApplicationController
       if @order.save
         Cart.destroy(session[:cart_id])
         session[:cart_id] = nil
-        format.html { redirect_to store_index_url, notice: 
+        format.html { redirect_to products_url, notice: 
           'Thank you for you order.' }
         format.json { render :show, status: :created,
            location: @order }
@@ -72,7 +72,7 @@ class OrdersController < ApplicationController
   private
   def ensure_cart_isnt_empty
     if @cart.line_items.empty?
-      redirect_to store_index_url, notice: 'Your cart is empty'
+      redirect_to products_url, notice: 'Your cart is empty'
     end  
   end
 
@@ -83,6 +83,6 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:name, :address, :pay_type)
+      params.require(:order).permit(:name, :address, :pay_type, :e_mail)
     end
 end

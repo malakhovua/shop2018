@@ -5,7 +5,8 @@ class Product < ApplicationRecord
   has_many :uniq_commented_users, -> { uniq },
            through: :comments,
            source: :user
-  has_many :line_items
+  has_many :line_items         
+  has_many :orders, through: :line_items
 
 
 

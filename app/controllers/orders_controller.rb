@@ -34,8 +34,13 @@ class OrdersController < ApplicationController
       if @order.save
         Cart.destroy(session[:cart_id])
         session[:cart_id] = nil
+        OrderMailer.received(@order).deliver_later
+        OrderMailer.shipped(@order).deliver_later
         format.html { redirect_to @order, notice: 
           'Thank you for you order.' }
+          format.js { redirect_to @order, alert: 
+          'Thank you for you order.' }
+
         format.json { render :show, status: :created,
            location: @order }
       else

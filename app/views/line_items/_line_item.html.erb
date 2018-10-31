@@ -4,7 +4,7 @@
 <tr>
 <% end %>
 
-  <td><%= line_item.quantity %> &times;</td>
+  <td><%= line_item.quantity %></td>
   <td><%= line_item.product.name %> </td>
   <td class="price"><%= number_to_currency(line_item.product.price) %></td>
   <td class="item_price"><%=number_to_currency(line_item.total_price)%></td>

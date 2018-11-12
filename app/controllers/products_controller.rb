@@ -4,12 +4,15 @@ class ProductsController < ApplicationController
   # skip_before_action  :authenticate_user!
   include CurrentCart
   before_action :set_cart
+   skip_before_action :authorize
 
   def index
+
     #@per_page = params[:per_page].present? ? params[:per_page].to_i : 5
     @page = params[:page].present? ? params[:page].to_i : 1
 
     @products = Product.page(@page)
+
   end
 
   def show

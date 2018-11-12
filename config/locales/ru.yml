@@ -1,0 +1,51 @@
+ru:
+  layouts:
+    application:
+    home: "На главную"
+    products: "Товары"
+    qurstions: "Часто задаваемые вопросы"
+    news: "Новости"
+    contucts: "Контакты"
+    orders: "Заказы"
+    users: "Пользователи"
+  home:
+    welcome: "Добро пожаловать в наш интернет магазин"
+
+  products:
+    add_cart_html: "В корзину"
+
+  cart:
+    title:    "Ваша корзина"
+    empty:    "Очистить корзину"
+    checkout:  "Оформить заказ"
+
+  number:
+    currency:
+      format:
+        unit:       "грн."
+        precision: 2
+        separator: ","
+        delimiter: "."
+        format:    "%n %u"
+
+  order:
+    new:
+      legend:       "Пожалуйста, введите Ваши данные"
+    form:
+      name:         "Имя"
+      address_html: "Адрес"
+      email:        "E-mail"
+      pay_type:     "Выберите метод оплаты"
+      submit:       "Оформить заказ"
+
+  activerecord:
+    models:
+      order: "Заказ"
+    attributes:
+      order:
+        address: "Адрес"
+        name: "Имя"
+        email: "Email"
+        pay_type: "Метод оплаты"
+
+    thanks: "Спасибо за Ваш заказ."

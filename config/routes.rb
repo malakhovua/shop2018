@@ -1,15 +1,12 @@
 Rails.application.routes.draw do
-  resources :orders
-  resources :line_items
-  resources :carts
-  devise_for :users
-  root 'home#index'
+  get 'admin' => 'admin#index'
 
-  resources :users, only: [:update] do
-    collection do
-      get :me
-    end
+  controller :sessions do
+  get 'login' => :new
+  post 'login' => :create
+  delete 'logout' => :destroy
   end
+
 
   resources :products do
     get '/likes', to: 'c#a'
@@ -28,5 +25,15 @@ Rails.application.routes.draw do
   resources :products do
     get :who_bought, on: :member
   end
+
+  scope '(:locale)' do
+    resource  :products
+    resources :users
+    resources :orders
+    resources :line_items
+    resources :carts
+    root 'home#index', as: 'home_index', via: :all
+  end
+
 
 end

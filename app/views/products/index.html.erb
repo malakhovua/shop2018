@@ -13,7 +13,8 @@
     <%= 'price: ' + price_format(product.price) %>
   </div>
   <div>
-    <%= button_to 'Add to Cart', line_items_path(product_id: product) ,
+    <%= button_to t('products.add_cart_html'),
+                  line_items_path(product_id: product) ,
     remote: true %>
   </div>
 </div>

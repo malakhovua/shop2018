@@ -1,30 +1,33 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="menu_stile">
 
     <ul class="nav navbar-nav ml-lg-5">
-      <li class="nav-item"><a class="nav-link"<%= link_to 'Home', root_path %></a></li>
-      <li class="nav-item"><a class="nav-link" h<%= link_to 'Products', products_path %></a></li>
-      <li class="nav-item"><a class="nav-link" href="#">Qurstions</a></li>
-      <li class="nav-item"><a class="nav-link" href="#">News</a></li>
-      <li class="nav-item"><a class="nav-link" href="#">Contucts</a></li>
-      <li class="nav-item"><%= link_to 'My Profile', me_users_path %></li>
-        <% if user_signed_in? %>
-        <li class="nav-item"> <%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
-        <li class="nav-item"> <%= link_to current_user.full_name %> </li>
-        <li class="nav-item">
-          <%= link_to me_users_path do%>
-          <%= image_tag current_user.avatar.url(:thumb), size: '45x45' %>
-        <% end %>
-        </li>
-        <% else %>
-        <li class="nav-item"><%= link_to 'Login', new_user_session_path %></li>
-        <li class="nav-item"><%= link_to 'Registration', new_user_registration_path %></li>
+      <li class="nav-item"><a class="nav-link"<%= link_to t('layouts.home'), home_index_path %></a></li>
+      <li class="nav-item"><a class="nav-link" <%= link_to t('layouts.products'), products_path %></a></li>
+      <li class="nav-item"><a class="nav-link" href="#"><%= t('layouts.qurstions')%></a></li>
+      <li class="nav-item"><a class="nav-link" href="#"><%= t('layouts.news')%></a></li>
+      <li class="nav-item"><a class="nav-link" href="#"><%= t('layouts.contucts')%></a></li>
+      <% if session[:user_id] %>
 
-        </section></li>
+        <li class="nav-item"><a class="nav-link" <%= link_to t('layouts.orders'), orders_path %></a></li>
+        <li class="nav-item"><a class="nav-link" <%= link_to t('layouts.products'), products_path %></a></li>
+        <li class="nav-item"><a class="nav-link" <%= link_to t('layouts.users'), users_path %></a></li>
 
-        <% end %>
+        <% button_to 'Logout', logout_path, method: :delete %>
+      <% end %>
+    </ul>
 
-        </ul>
+  <div id="banner">
+    <%= form_tag home_index_path, class: 'locale' do %>
+      <%= select_tag 'set_locale',
+                     options_for_select(LANGUAGES, I18n.locale.to_s),
+                     onchange: 'this.form.submit()'%>
+      <%= submit_tag 'submit' %>
+      <%= javascript_tag "$('.locale input').hide()"%>
+    <% end %>
+
   </div>
+
+
 </nav>
 <div id = "cart">
   <% if @cart %>

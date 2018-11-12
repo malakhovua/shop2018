@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
   include CurrentCart
+  skip_before_action :authorize, only: [:new, :create]
   before_action :set_cart, only: [:new, :create]
   before_action :ensure_cart_isnt_empty, only: :new
   before_action :set_order, only: [:show, :edit, :update, :destroy]
@@ -36,9 +37,9 @@ class OrdersController < ApplicationController
         session[:cart_id] = nil
         OrderMailer.received(@order).deliver_later
         OrderMailer.shipped(@order).deliver_later
-        format.html { redirect_to @order, notice: 
-          'Thank you for you order.' }
-          format.js { redirect_to @order, alert: 
+        format.html { redirect_to products_url, notice:
+          I18n.t('thanks') }
+          format.js { redirect_top roducts_url, alert:
           'Thank you for you order.' }
 
         format.json { render :show, status: :created,

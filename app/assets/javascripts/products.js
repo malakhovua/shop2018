@@ -3,6 +3,8 @@
 // $(document).on('ready', function() {});
 // $(document).ready(function() {});
 
+
+
 $(document).on('turbolinks:load', function() {
     $('a.remove-image').click(function(event) {
         var $target = $(event.currentTarget);
@@ -69,31 +71,3 @@ $(document).on('turbolinks:load', function() {
         return false;
     });
 })
-
-
-
-
-
-
-
-
-
-
-/*
-$(function(){
-   $('a.delete-product').click(function (event) {
-       /!*event.preventDefault();
-       event.stopPropagation();*!/
-       console.log($(event.currentTarget).attr('href'));
-       $.ajax($(event.currentTarget).attr('href'),{
-          method: 'DELETE',
-           success: function () {
-              window.location.href = window.location.href;
-           }
-       });
-
-       return false;
- });
-});
-*/
-// console.log(value);

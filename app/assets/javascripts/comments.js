@@ -1,32 +1,3 @@
-// var observer = {
-//   events: {
-//
-//   },
-//   bind: function(action_name, handler) {
-//     this.events[action_name] = this.events[action_name] || [];
-//     this.events[action_name].push(handler);
-//   },
-//   trigger: function(action_name) {
-//     var handlers = this.events[action_name] || [];
-//
-//     for (var i = 0; i < handlers.length; i++) {
-//       handlers[i]();
-//     }
-//   }
-// };
-//
-// observer.bind('click', function() {
-//   console.log('CLICK 1!');
-// });
-// observer.bind('click', function() {
-//   console.log('CLICK 2!');
-// });
-//
-// observer.bind('create', function() {
-//   console.log('CREATE!');
-// });
-//
-// observer.trigger('click'); // 'CLICK 1!' 'CLICK 2!'
 
 $(function() {
     // window.WsClient = new WebSocket('ws://localhost:8080');

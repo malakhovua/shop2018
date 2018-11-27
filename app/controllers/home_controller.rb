@@ -7,7 +7,7 @@ class HomeController < ApplicationController
     if params[:set_locale]
       redirect_to home_index_path(locale: params[:set_locale])
     else
-      
+
     end
 
   end

@@ -8,7 +8,6 @@ class ProductsController < ApplicationController
 
   def index
 
-    #@per_page = params[:per_page].present? ? params[:per_page].to_i : 5
     @page = params[:page].present? ? params[:page].to_i : 1
 
     @products = Product.page(@page)

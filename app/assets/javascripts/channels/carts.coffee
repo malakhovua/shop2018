@@ -6,4 +6,8 @@ App.carts = App.cable.subscriptions.create "CartsChannel",
     # Called when the subscription has been terminated by the server
 
   received: (data) ->
-    $(".carts_cable").html(data.html)
+    $(".carts_cable").html(data)
+
+
+
+

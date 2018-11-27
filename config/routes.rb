@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
+
   get 'admin' => 'admin#index'
+
 
   controller :sessions do
   get 'login' => :new
   post 'login' => :create
   delete 'logout' => :destroy
   end
+
 
 
   resources :products do
@@ -22,18 +25,23 @@ Rails.application.routes.draw do
     resources :images
   end
 
+
   resources :products do
     get :who_bought, on: :member
   end
 
-  scope '(:locale)' do
-    resource  :products
-    resources :users
+
+  scope "/:locale" do
     resources :orders
-    resources :line_items
-    resources :carts
-    root 'home#index', as: 'home_index', via: :all
   end
+
+  resource  :products
+  resources :users
+  resources :orders
+  resources :line_items
+  resources :carts
+
+  root 'home#index', as: 'home_index', via: :all
 
 
 end

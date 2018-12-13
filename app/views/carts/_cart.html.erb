@@ -1,28 +1,8 @@
-<% unless cart.line_items.empty?%>
-<div class = "carts_cable">
-<h2><%=t('cart.title') %></h2>
-<table>
-  <tr>
-    <th></th>
-    <th></th>
-    <th class="head">prise</th>
-    <th class="head">total price</th>
-  </tr>
-  <tr>
-  <%= render(@cart.line_items) %>
-<tr class = "total_line">
-  <td colspan="3">Total</td>
-  <td class="total_cell"> <%= number_to_currency(@cart.total_price) %> </td>
-</tr>
 
-</table>
-<div id ='check'>
-<br>
-<%= button_to t('cart.checkout'),
-              new_order_path, method: :get %>
-<br>
-</div>
-<%= button_to t('cart.empty'), @cart, method: :delete,
-data: {confirm: 'Are you sure?'}%>
+<% unless cart.line_items.empty? %>
+    <div class="form-inline mt-2 mt-md-0">
+      <div class="_cart">
+      <%= @cart.total_qty %>
+      </div>
+    </div>
 <% end %>
-</div>

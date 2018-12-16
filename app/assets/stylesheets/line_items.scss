@@ -1,12 +1,7 @@
 // Place all the styles related to the LineItems controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-p, div.price_line {
-  margin-left: 100px;
-  margin-top: 0.5em;
-  margin-bottom: 0.8em;
-
-  form, div {
-    display: inline;
-  }
+.prod_name{
+  font-size: 15px;
+  text-decoration-color: #B00100;
 }

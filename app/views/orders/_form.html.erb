@@ -14,28 +14,34 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :name, t('order.form.name') %>
-    <%= f.text_field :name, size: 40 %>
+    <%= f.text_field :name, size: 40, :class=>"form-control",
+                     :id=>"exampleInputPassword1", :placeholder=>"Name" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :address, t('order.form.address_html')%>
-    <%= f.text_area :address, rows: 3, cols: 40 %>
+    <%= f.text_area :address, rows: 3, cols: 40, :class=>"form-control",
+        :id=>"exampleFormControlTextarea1"  %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :e_mail, t('order.form.email')%>
-    <%= f.email_field :e_mail, size: 40 %>
+    <%= f.email_field :e_mail, size: 40, :class=>"form-control", :id=>"exampleFormControlInput1",
+                      :placeholder=>"name@example.com" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :pay_type, t('order.form.pay_type')%>
     <%= f.select :pay_type, Order.pay_types.keys,
-                                     prompt: 'Select a payment method' %>
+                                     prompt: 'Select a payment method',
+                 :class=>"form-control", :id=>"exampleFormControlSelect1" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit t('order.form.submit')%>
+
+
+  <div class="col-auto">
+    <%= f.submit t('order.form.submit'), :class=>"btn btn-primary mb-2"%>
   </div>
 <% end %>

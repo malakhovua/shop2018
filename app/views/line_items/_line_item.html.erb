@@ -1,17 +1,38 @@
-<% if line_item == @current_item %>
-<tr id = "current_item">
-<% else %>
-<tr>
-<% end %>
 
-  <td><%= line_item.quantity %></td>
-  <td><%= line_item.product.name %> </td>
-  <td class="price"><%= number_to_currency(line_item.product.price) %></td>
-  <td class="item_price"><%=number_to_currency(line_item.total_price)%></td>
-  <td> <%= button_to 'delete', line_items_path(product_id: line_item.product, delete:true),
-    remote: true%></td>
-  <td><%= button_to '+', line_items_path(product_id: line_item.product),
-    remote: true %></td>
-  <td><%= button_to '-', line_items_path(product_id: line_item.product, remove:true),
-    remote: true %></td>
-</tr>
+  <!-- PRODUCT -->
+<div class="row">
+  <div class="col-12 col-sm-12 col-md-2 text-center">
+    <%=image_tag line_item.product.images[0].file_url, :class=> "img-responsive", :alt=>"prewiew", :width=>"120", :height=>"80"%>
+  </div>
+  <div class="col-12 text-sm-center col-sm-12 text-md-left col-md-6">
+    <div class="prod_name">
+      <%= link_to line_item.product.name, product_path(id: line_item.product.id)%>
+    </div>
+    <h4>
+      <small><%=line_item.product.description%></small>
+    </h4>
+  </div>
+  <div class="col-12 col-sm-12 text-sm-center col-md-4 text-md-right row">
+    <div class="col-3 col-sm-3 col-md-6 text-md-right" style="padding-top: 5px">
+      <h6><strong><%= number_to_currency(line_item.product.price)%><span class="text-muted">x</span></strong></h6>
+    </div>
+    <div class="col-2 col-sm-2 col-md-2">
+      <div class="quantity">
+        <%= line_item.quantity %>
+      </div>
+    </div>
+    <%= button_to '+', line_items_path(product_id: line_item.product), :class=>"plus", remote: true %>
+    <%= button_to '-', line_items_path(product_id: line_item.product, remove:true), :class=> "minus", remote: true %>
+    <div class="col-2 col-sm-2 col-md-2 text-right">
+
+        <%= button_to 'Delete', line_items_path(product_id: line_item.product, delete:true),
+                      :class=>"btn btn-outline-danger btn-xs", remote: true %>
+      </button>
+
+    </div>
+  </div>
+</div>
+<hr>
+<!-- END PRODUCT -->
+
+

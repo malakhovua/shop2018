@@ -1,5 +1,8 @@
 class CommentsController < ApplicationController
+  skip_before_action :authorize
+
   include Productable
+
 
   def index
     # binding.pry

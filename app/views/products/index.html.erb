@@ -1,7 +1,3 @@
-<br>
-<br>
-<br>
-<br>
 
 <div class="row">
 <% @products.each do |product| %>
@@ -15,12 +11,16 @@
             <p class="card-text"> <%= truncate(strip_tags(product.description), length: 200) %></p>
             <div class="d-flex justify-content-between align-items-center">
               <div class="btn-group">
-                <%= button_to t('products.add_cart_html'),line_items_path(product_id: product),remote: true,
+                <%= button_to t('products.add_cart_html'),line_items_path(product_id: product), remote: true,
                               class: 'btn btn-sm btn-outline-secondary'%>
+              <!--
                 <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+              -->
+                <%= button_to t('products.comments'),product_comments_path(product_id: product), remote: true,
+                              class: 'btn btn-sm btn-outline-secondary'%>
               </div>
               <small class="text-muted">9 mins</small>
-              <small style="color: #B00100"> <%= 'price: ' + price_format(product.price) %></small>
+              <small style="color: #B00100"> <%= t('products.price') + price_format(product.price) %></small>
 
             </div>
           </div>

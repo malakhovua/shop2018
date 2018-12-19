@@ -8,16 +8,22 @@ ru:
     contucts: "Контакты"
     orders: "Заказы"
     users: "Пользователи"
+    search: "Поиск"
   home:
     welcome: "Добро пожаловать в наш интернет магазин"
 
   products:
     add_cart_html: "В корзину"
+    price: "цена: "
+    comments: "отзывы"
 
   cart:
     title:    "Ваша корзина"
     empty:    "Очистить корзину"
     checkout:  "Оформить заказ"
+    Total_price: "Итого:"
+    continiu_shopping: "Продолжить покупку"
+    Update_shopping_cart: "Обновить корзину"
 
   number:
     currency:
@@ -31,12 +37,17 @@ ru:
   order:
     new:
       legend:       "Пожалуйста, введите Ваши данные"
+      Select_a_payment_method: "Выберите метод оплаты"
     form:
       name:         "Имя"
       address_html: "Адрес"
       email:        "E-mail"
       pay_type:     "Выберите метод оплаты"
       submit:       "Оформить заказ"
+
+
+  line_items:
+    delete: "Удалить"
 
   activerecord:
     models:

@@ -8,16 +8,22 @@ en:
     contucts: "Contacts"
     orders: "Orders"
     users: "Users"
+    search: "Search"
   home:
     welcome: "Welcome to E-Shop"
 
   products:
     add_cart_html: "Add to Cart"
+    price: "price: "
+    comments: "comments"
 
   cart:
     title:    "Your Cart"
     empty:    "Empty cart"
     checkout:  "Checkout"
+    Total_price: "Total price:"
+    continiu_shopping: "Continue shopping"
+    Update_shopping_cart: "Update shopping cart"
 
   number:
     currency:
@@ -31,11 +37,16 @@ en:
   order:
     new:
       legend:       "Please Enter You Details"
+      Select_a_payment_method: "Выберите метод оплаты"
     form:
       name:         "Name"
       address_html: "Address"
       email:        "E-mail"
       pay_type:     "Select a payment method"
       submit:       "Place Order"
+
+  line_items:
+    delete: "Delete"
+
 
   thanks: "Thank you for you order."

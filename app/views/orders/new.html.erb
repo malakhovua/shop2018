@@ -5,14 +5,14 @@
     <div class="card-header bg-dark text-light">
       <i class="fa fa-shopping-cart" aria-hidden="true"></i>
       <%=t('cart.title') %>
-      <%= link_to 'Continiu shopping', products_path, :class =>"btn btn-outline-info btn-sm pull-right" %>
+      <%= link_to t('cart.continiu_shopping'), products_path, :class =>"btn btn-outline-info btn-sm pull-right" %>
       <div class="clearfix"></div>
     </div>
     <div class="card-body">
       <%= render(@cart.line_items) %>
       <div class="pull-right">
         <a href="" class="btn btn-outline-secondary pull-right">
-          Update shopping cart
+          <%=t('cart.Update_shopping_cart')%>
         </a>
       </div>
     </div>
@@ -28,7 +28,7 @@
       </div>
       <div class="pull-right" style="margin: 10px">
         <div class="pull-right" style="margin: 5px">
-          Total price: <b> <%= number_to_currency(@cart.total_price) %></b>
+          <%=t('cart.Total_price')%> <b> <%= number_to_currency(@cart.total_price) %></b>
         </div>
       </div>
     </div>
@@ -37,7 +37,7 @@
 
 
   <fieldset>
-    <h2><%= t('order.new.legend') %></h2>
+    <h2 id="order_legend"><%= t('order.new.legend') %></h2>
     <%= render 'form', order: @order %>
   </fieldset>
 

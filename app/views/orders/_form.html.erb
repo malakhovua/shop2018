@@ -35,7 +35,7 @@
   <div class="form-group">
     <%= f.label :pay_type, t('order.form.pay_type')%>
     <%= f.select :pay_type, Order.pay_types.keys,
-                                     prompt: 'Select a payment method',
+                                     prompt: t('order.new.Select_a_payment_method'),
                  :class=>"form-control", :id=>"exampleFormControlSelect1" %>
   </div>
 

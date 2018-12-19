@@ -1,5 +1,6 @@
 ._cart_position{
     position: relative;
+    margin-right: 15px;
 
 }
 
@@ -26,6 +27,14 @@
     color: #B00100;
 }
 #locale a:visited {
-    color: #eeffee;
+    color: #eeffee ;
 }
 
+.blueColor{
+    color: yellow;
+}
+
+.navbar-brand {
+    color: chartreuse;
+    border: 1px solid green;
+}

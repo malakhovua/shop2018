@@ -2,8 +2,7 @@ class ProductsController < ApplicationController
    before_action :set_product, only: [:show, :edit, :update, :destroy]
   #skip_before_action :before_some_method, except: [:index]
   # skip_before_action  :authenticate_user!
-  include CurrentCart
-  before_action :set_cart
+
    skip_before_action :authorize
 
   def index

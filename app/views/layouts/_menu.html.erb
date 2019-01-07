@@ -36,7 +36,7 @@
         <div id = "cart">
           <% render @cart %>
         </div>
-          <%end %>>
+          <%end %>
       </div>
     </div>
 
@@ -44,6 +44,8 @@
         <input class="form-control mr-sm-2" type="text" placeholder=<%= t('layouts.search') %> aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><%= t('layouts.search') %></button>
       </form>
+
+
 
     <p id="locale">
       <%= link_to_unless I18n.locale == :en, "English", locale: :en %>

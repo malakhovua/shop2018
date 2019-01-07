@@ -32,11 +32,13 @@
           <%= link_to image_tag('cart.png', size: 7*7),
                          new_order_path, method: :get %>
         </div>
-        <%if  @cart%>
+
         <div id = "cart">
-          <% render @cart %>
-        </div>
+        <%if  @cart %>
+            <%= render @cart %>
           <%end %>
+        </div>
+
       </div>
     </div>
 
@@ -52,8 +54,7 @@
       |
       <%= link_to_unless I18n.locale == :ru, "Русский", locale: :ru %>
     </p>
-
-
+    
   </nav>
 
 

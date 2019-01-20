@@ -1,0 +1,4 @@
+$('#cart').html("<%=j render(@cart)%>");
+$('#line_items').html("<%=j render(@cart.line_items) %>");
+$('#total_price').html("<%=j render('orders/total_price') %>");
+

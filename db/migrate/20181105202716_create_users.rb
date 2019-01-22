@@ -1,4 +1,5 @@
 class CreateUsers < ActiveRecord::Migration[5.2]
+=begin
   def change
     create_table :users do |t|
       t.string :name
@@ -7,4 +8,5 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.timestamps
     end
   end
+=end
 end

@@ -118,12 +118,14 @@ class LineItemsController < ApplicationController
 
     def update_cart_show
 
+begin
 
       @carts = Cart.all
       ActionCable.server.broadcast 'carts',
       html: render_to_string('carts/show', layout: false)
+end
 
-    end
+end
 
 
 

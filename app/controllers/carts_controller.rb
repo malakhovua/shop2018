@@ -14,7 +14,7 @@ class CartsController < ApplicationController
   # GET /carts/1
   # GET /carts/1.json
   def show
-    
+
   end
 
   # GET /carts/new
@@ -34,11 +34,11 @@ class CartsController < ApplicationController
 
     respond_to do |format|
       if @cart.save
-        format.html { redirect_to @cart, notice: 'Cart was successfully created.' }
-        format.json { render :show, status: :created, location: @cart }
+        format.html {redirect_to @cart, notice: 'Cart was successfully created.'}
+        format.json {render :show, status: :created, location: @cart}
       else
-        format.html { render :new }
-        format.json { render json: @cart.errors, status: :unprocessable_entity }
+        format.html {render :new}
+        format.json {render json: @cart.errors, status: :unprocessable_entity}
       end
     end
 
@@ -49,11 +49,11 @@ class CartsController < ApplicationController
   def update
     respond_to do |format|
       if @cart.update(cart_params)
-        format.html { redirect_to @cart, notice: 'Cart was success  fully updated.' }
-        format.json { render :show, status: :ok, location: @cart }
+        format.html {redirect_to @cart, notice: 'Cart was success  fully updated.'}
+        format.json {render :show, status: :ok, location: @cart}
       else
-        format.html { render :edit }
-        format.json { render json: @cart.errors, status: :unprocessable_entity }
+        format.html {render :edit}
+        format.json {render json: @cart.errors, status: :unprocessable_entity}
       end
     end
   end
@@ -65,26 +65,36 @@ class CartsController < ApplicationController
     @cart.destroy if @cart.id == session[:cart_id]
     session[:cart_id] = nil
     respond_to do |format|
-      format.html { redirect_to  products_url }
+      format.html {redirect_to products_url}
       # notice: 'You cart is currently empty'}
-      format.json { head :no_content }
+      format.json {head :no_content}
     end
+    update_cart_show
   end
 
   private
 
-    # Use callbacks to share common setup or constraints between actions.
-    def set_cart
-      @cart = Cart.find(params[:id])
+  # Use callbacks to share common setup or constraints between actions.
+  def set_cart
+    @cart = Cart.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def cart_params
+    params.fetch(:cart, {})
+  end
+
+  def invalid_cart
+    logger.error "Attemp to access invalid cart #{params[:id]}"
+    redirect_to products_url notice: 'Invalid cart'
+  end
+
+  def update_cart_show
+
+    begin
+      @carts = Cart.all
+      ActionCable.server.broadcast 'carts', html: render_to_string(partial: @cart, layout: false)
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def cart_params
-      params.fetch(:cart, {})
-    end
-
-    def invalid_cart
-      logger.error "Attemp to access invalid cart #{params[:id]}"
-       redirect_to products_url notice:  'Invalid cart'
-    end
+  end
 end

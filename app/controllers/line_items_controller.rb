@@ -14,7 +14,7 @@ class LineItemsController < ApplicationController
   # GET /line_items/1
   # GET /line_items/1.json
   def show
-  
+
   end
 
   # GET /line_items/new
@@ -33,11 +33,11 @@ class LineItemsController < ApplicationController
 
     respond_to do |format|
       if @line_item.save
-        format.html { redirect_to @line_item.cart}
-        format.json { render :show, status: :created, location: @line_item }
+        format.html {redirect_to @line_item.cart}
+        format.json {render :show, status: :created, location: @line_item}
       else
-        format.html { render :new }
-        format.json { render json: @line_item.errors, status: :unprocessable_entity }
+        format.html {render :new}
+        format.json {render json: @line_item.errors, status: :unprocessable_entity}
       end
     end
 
@@ -48,25 +48,25 @@ class LineItemsController < ApplicationController
   def create
 
     product = Product.find(params[:product_id])
-    
+
     if params[:remove] then
-       @line_item = @cart.remove_product(product)
-    elsif params[:delete] then 
+      @line_item = @cart.remove_product(product)
+    elsif params[:delete] then
       @line_item = @cart.delete_product(product)
     else
       @line_item = @cart.add_product(product)
     end
-    
+
     respond_to do |format|
       if @line_item.save
-        format.html { redirect_to line_item_url}
+        format.html {redirect_to line_item_url}
         # format.html { redirect_to @line_item.cart}
         format.js
-        format.json { render :show,
-        status: :created, location: @line_item }
+        format.json {render :show,
+                            status: :created, location: @line_item}
       else
-        format.html { render :new }
-        format.json { render json: @line_item.errors, status: :unprocessable_entity }
+        format.html {render :new}
+        format.json {render json: @line_item.errors, status: :unprocessable_entity}
       end
     end
     update_cart_show
@@ -77,12 +77,12 @@ class LineItemsController < ApplicationController
   def update
     respond_to do |format|
       if @line_item.update(line_item_params)
-        format.html { redirect_to @line_item, notice: 'Line item was successfully updated.' }
-        format.json { render :show, status: :ok, location: @line_item }
-       
+        format.html {redirect_to @line_item, notice: 'Line item was successfully updated.'}
+        format.json {render :show, status: :ok, location: @line_item}
+
       else
-        format.html { render :edit }
-        format.json { render json: @line_item.errors, status: :unprocessable_entity }
+        format.html {render :edit}
+        format.json {render json: @line_item.errors, status: :unprocessable_entity}
       end
     end
   end
@@ -93,40 +93,38 @@ class LineItemsController < ApplicationController
     @line_item.destroy
     respond_to do |format|
       if @line_item.destroy
-        format.html { redirect_to line_item_url}
+        format.html {redirect_to line_item_url}
         # format.html { redirect_to @line_item.cart}
         format.js
-        format.json { render :show,
-                             status: :created, location: @line_item }
+        format.json {render :show, status: :created, location: @line_item}
       else
-        format.html { render :new }
-        format.json { render json: @line_item.errors, status: :unprocessable_entity }
+        format.html {render :new}
+        format.json {render json: @line_item.errors, status: :unprocessable_entity}
       end
     end
+    update_cart_show
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_line_item
-      @line_item = LineItem.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def line_item_params
-      params.require(:line_item).permit(:product_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_line_item
+    @line_item = LineItem.find(params[:id])
+  end
 
-    def update_cart_show
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def line_item_params
+    params.require(:line_item).permit(:product_id)
+  end
 
-begin
+  def update_cart_show
 
+    begin
       @carts = Cart.all
-      ActionCable.server.broadcast 'carts',
-      html: render_to_string('carts/show', layout: false)
-end
+      ActionCable.server.broadcast 'carts', html: render_to_string(partial: @cart, layout: false)
+    end
 
-end
-
+  end
 
 
 end

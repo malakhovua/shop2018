@@ -1,36 +1,55 @@
-<h3><%= @product.name %>:
-  <%= @product.price %>
-  $</h3>
-
+<br><br><br><br><br>
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-  </ol>
-
   <div class="carousel-inner">
-    <% @product.images.each_with_index do |image, index| %>
-    <% next unless image.file_url %>
-    <%= 'active' if index == 0 %>
-      <div class="carousel-item active">
-      <%= image_tag(image.file_url, class: "d-block w-100") %>
-      </div>
-  <% end %>
 
+    <ol class="carousel-indicators">
+    <%@product.images.each_with_index do |image, index| %>
+    <% next unless image.file_url %>
+    <% if index == 0 %>
+          <li data-target="#carouselExampleIndicators" data-slide-to=<%=index%> class="active"></li>
+    <% else %>
+          <li data-target="#carouselExampleIndicators" data-slide-to=<%=index%>></li>
+    <% end %>
+
+    <% end %>
+    </ol>
+
+    <%@product.images.each_with_index do |image, index| %>
+    <% next unless image.file_url %>
+    <% if index == 0 %>
+      <div class="carousel-item active">
+        <% else %>
+        <div class="carousel-item">
+        <% end %>
+      <%= image_tag(image.file_url, class: "d-block w-100") %>
+
+      <div class="carousel-caption d-none d-md-block">
+
+        <h5 style="color: crimson"><%=@product.name%></h5>
+        <h3 style="color: #cc0000"><%= t('products.price') + price_format(@product.price) %></h3>
+      </div>
+
+      </div>
+      <% end %>
+   </div>
+
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
   </div>
 
-  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
+  <br><br><br><br>
 
+  <%= button_to t('products.add_cart_html'),line_items_path(product_id: @product), remote: true,
+                class: 'btn btn-primary'%>
 
-  <%= link_to 'Edit', edit_product_path(@product), class: 'btn btn-primary' %>
+<!--
+  <%#= link_to 'Edit', edit_product_path(@product), class: 'btn btn-primary' %>
+  -->
   <!--<br>
   <%#= link_to 'Show comments', product_comments_path(@product) %>-->

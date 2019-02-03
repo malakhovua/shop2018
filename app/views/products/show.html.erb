@@ -42,17 +42,14 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
+  <br><br><br><br>
+  <%= button_to t('products.add_cart_html'),line_items_path(product_id: @product), remote: true,
+                class: 'btn btn-primary'%>
+
 </div>>
-
-<br><br><br><br>
-
-<%= button_to t('products.add_cart_html'),line_items_path(product_id: @product), remote: true,
-              class: 'btn btn-primary'%>
 
 <!--
 <%#= link_to 'Edit', edit_product_path(@product), class: 'btn btn-primary' %>
 -->
 <br>
-<!--
-<%#= link_to 'Show comments', product_comments_path(@product) %>
--->
+<%= link_to 'Show comments', product_comments_path(@product) %>

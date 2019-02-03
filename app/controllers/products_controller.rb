@@ -1,37 +1,38 @@
 class ProductsController < ApplicationController
-   before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_product, only: [:show, :edit, :update, :destroy]
   #skip_before_action :before_some_method, except: [:index]
   # skip_before_action  :authenticate_user!
 
-   skip_before_action :authorize
+  skip_before_action :authorize
 
   def index
 
+
     @page = params[:page].present? ? params[:page].to_i : 1
 
-    @products = Product.page(@page)
-
+    @products = if params[:Product_name]
+                  Product.page(@page).where('name LIKE ?', "%#{params[:Product_name]}%")
+                else
+                  Product.page(@page)
+                end
   end
 
-  def show
-
-  end
+  def show; end
 
   def new
     @product = Product.new
   end
 
-  def edit
-
-  end
+  def edit; end
 
   def update
     # @product.update(product_params)
     # redirect_to @product
     respond_to do |format|
       if @product.update(product_params)
-      format.html { redirect_to @product,
-      notice: 'Product was successfully updated.' }
+        format.html { 
+          redirect_to @product,
+        notice: 'Product was successfully updated.' }
       format.json { render :show, status: :ok, location: @product }
      
       @products = Product.all
@@ -43,8 +44,9 @@ class ProductsController < ApplicationController
       html: render_to_string('carts/show', layout: false)
 
       else
-      format.html { render :edit }
-      format.json { render json: @product.errors,
+        format.html { render :edit }
+      format.json { 
+        render json: @product.errors,
       status: :unprocessable_entity }
       end
     end

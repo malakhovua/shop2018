@@ -1,65 +1,80 @@
 
-  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
 
-    <div id="_navbar-brand">
+  <div id="_navbar-brand">
     <a class="navbar-brand" href="#">Electronic<span class="blueColor"> Shop</span></a>
-    </div>
+  </div>
 
-    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="navbar-collapse collapse" id="navbarCollapse" style="">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" <%= link_to t('layouts.home'), home_index_path %> <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" <%= link_to t('layouts.products'), products_path %> </a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="#"><%= t('layouts.qurstions')%> </a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="#"><%= t('layouts.news')%></a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="#"><%= t('layouts.contucts')%> </a>
-        </li>
-      </ul>
-
-      <div class="_cart_position">
-        <div>
-          <%= link_to image_tag('cart.png', size: 7*7),
-                         new_order_path, method: :get %>
-        </div>
-
-
-        <div id = "cart">
-        <%if  @cart %>
-            <div class="cart_cable">
-            <%= render @cart %>
-            </div>
-          <%end %>
-        </div>
+  <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="navbar-collapse collapse" id="navbarCollapse" style="">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" <%= link_to t('layouts.home'), home_index_path %> <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" <%= link_to t('layouts.products'), products_path %> </a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#"><%= t('layouts.qurstions')%> </a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#"><%= t('layouts.news')%></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#"><%= t('layouts.contucts')%> </a>
+      </li>
+    </ul>
+    <% if logged_in? %>
+      <li class="nav-item active">
+        <a class="nav-link" href="#" style="color: white"> <%= current_user.name %> </a>
+      </li>
+    <%end%>
 
 
+    <div class="_cart_position">
+      <div>
+        <%= link_to image_tag('cart.png', size: 7*7),
+                    new_order_path, method: :get %>
       </div>
+
+
+      <div id = "cart">
+        <%if  @cart %>
+          <div class="cart_cable">
+            <%= render @cart %>
+          </div>
+        <%end %>
+      </div>
+
+
     </div>
+  </div>
 
-      <form class="form-inline mt-2 mt-md-0">
-        <input class="form-control mr-sm-2" type="text" placeholder=<%= t('layouts.search') %> aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><%= t('layouts.search') %></button>
-      </form>
+  <!--  <form class="form-inline mt-2 mt-md-0">
+        <input class="form-control mr-sm-2" type="text" placeholder=<%#= t('layouts.search') %> aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><%#= t('layouts.search') %></button>
+      </form>-->
+
+  <%= form_tag(products_path, method: :get, class: 'form-inline mt-2 mt-md-0') do %>
+    <%= text_field_tag :Product_name, t('layouts.search'), class: 'form-control mr-sm-2' %>
+    <%= submit_tag t('layouts.search'), name: nil, class:'btn btn-outline-success my-2 my-sm-0' %>
+  <% end %>
+
+
+  <p id="locale">
+    <%= link_to_unless I18n.locale == :en, "English", locale: :en %>
+    |
+    <%= link_to_unless I18n.locale == :ru, "Русский", locale: :ru %>
+  </p>
+
+
+</nav>
 
 
 
-    <p id="locale">
-      <%= link_to_unless I18n.locale == :en, "English", locale: :en %>
-      |
-      <%= link_to_unless I18n.locale == :ru, "Русский", locale: :ru %>
-    </p>
 
-  </nav>
 
 
 

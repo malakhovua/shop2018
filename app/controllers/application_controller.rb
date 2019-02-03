@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   include CurrentCart
+  include SessionsHelper
   before_action :set_cart
   before_action :set_locale
   before_action  :authorize

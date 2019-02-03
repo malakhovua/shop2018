@@ -3,24 +3,24 @@
   <div class="carousel-inner">
 
     <ol class="carousel-indicators">
-    <%@product.images.each_with_index do |image, index| %>
-    <% next unless image.file_url %>
-    <% if index == 0 %>
+      <%@product.images.each_with_index do |image, index| %>
+        <% next unless image.file_url %>
+        <% if index == 0 %>
           <li data-target="#carouselExampleIndicators" data-slide-to=<%=index%> class="active"></li>
-    <% else %>
+        <% else %>
           <li data-target="#carouselExampleIndicators" data-slide-to=<%=index%>></li>
-    <% end %>
+        <% end %>
 
-    <% end %>
+      <% end %>
     </ol>
 
     <%@product.images.each_with_index do |image, index| %>
-    <% next unless image.file_url %>
-    <% if index == 0 %>
-      <div class="carousel-item active">
-        <% else %>
+      <% next unless image.file_url %>
+      <% if index == 0 %>
+        <div class="carousel-item active">
+      <% else %>
         <div class="carousel-item">
-        <% end %>
+      <% end %>
       <%= image_tag(image.file_url, class: "d-block w-100") %>
 
       <div class="carousel-caption d-none d-md-block">
@@ -30,8 +30,8 @@
       </div>
 
       </div>
-      <% end %>
-   </div>
+    <% end %>
+    </div>
 
     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -42,14 +42,17 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
+</div>>
 
-  <br><br><br><br>
+<br><br><br><br>
 
-  <%= button_to t('products.add_cart_html'),line_items_path(product_id: @product), remote: true,
-                class: 'btn btn-primary'%>
+<%= button_to t('products.add_cart_html'),line_items_path(product_id: @product), remote: true,
+              class: 'btn btn-primary'%>
 
 <!--
-  <%#= link_to 'Edit', edit_product_path(@product), class: 'btn btn-primary' %>
-  -->
-  <!--<br>
-  <%#= link_to 'Show comments', product_comments_path(@product) %>-->
+<%#= link_to 'Edit', edit_product_path(@product), class: 'btn btn-primary' %>
+-->
+<br>
+<!--
+<%#= link_to 'Show comments', product_comments_path(@product) %>
+-->

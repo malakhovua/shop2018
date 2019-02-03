@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
+  skip_before_action :authorize
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+
+
+
 
   # GET /users
   # GET /users.json
@@ -28,8 +32,10 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to users_url,
-                                  notice: "User #{@user.name} was successfully created." }
+        log_in @user
+        format.html {
+          redirect_to users_url,
+                      notice: "User #{@user.name} was successfully created." }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -43,8 +49,9 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to users_url,
-                                  notice: "User #{@user.name} was successfully updated." }
+        format.html {
+          redirect_to users_url,
+                      notice: "User #{@user.name} was successfully updated." }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
@@ -58,8 +65,9 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     respond_to do |format|
-      format.html {redirect_to users_url,
-                                  notice: 'User #{@user.name} deleted.'}
+      format.html {
+        redirect_to users_url,
+                    notice: 'User #{@user.name} deleted.'}
       format.json { head :no_content }
     end
   end
@@ -69,13 +77,14 @@ class UsersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = User.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  # @return [Object]
+  def set_user
+    @user = User.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def user_params
-      params.require(:user).permit(:name, :password, :password_confirmation)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def user_params
+    params.require(:user).permit(:name, :password, :password_confirmation)
+  end
 end

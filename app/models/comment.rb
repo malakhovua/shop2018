@@ -2,7 +2,7 @@ class Comment < ApplicationRecord
   belongs_to :product
   belongs_to :user
 
-  delegate :full_name, to: :user, prefix: true
+  #delegate :full_name, to: :user, prefix: true
 
   validates :text, :product, presence: true
   validates :text, length: { maximum: 140 }
@@ -15,7 +15,7 @@ class Comment < ApplicationRecord
         product_id: product_id,
         user_id: user_id,
         text: text,
-        nick: user_full_name || 'Guest'
+        nick: user || 'Guest'
     }
   end
 

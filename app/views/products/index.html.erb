@@ -16,8 +16,8 @@
               <!--
                 <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
               -->
-                <%= button_to t('products.comments'),product_comments_path(product_id: product), remote: true,
-                              class: 'btn btn-sm btn-outline-secondary'%>
+                <%= link_to t('products.comments'), product_comments_path(product),
+                            class: 'btn btn-sm btn-outline-secondary' %>
               </div>
               <small class="text-muted">9 mins</small>
               <small style="color: #B00100"> <%= t('products.price') + price_format(product.price) %></small>

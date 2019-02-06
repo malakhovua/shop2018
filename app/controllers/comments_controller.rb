@@ -17,7 +17,9 @@ class CommentsController < ApplicationController
   end
 
   def create
-    # binding.pry
+
+    if logged_in?
+
     @comment = @product.comments.build(comment_params)
     @comment.user = current_user
     if @comment.save
@@ -36,6 +38,10 @@ class CommentsController < ApplicationController
       end
     end
 
+    else
+
+      redirect_to login_path
+    end
   end
 
   private

@@ -1,22 +1,29 @@
-<ul id="comments-list" data-product_id="<%= @product.id %>"
-    data-current_user_id="<%= current_user.id %>">
+
   <% @comments.each do |com| %>
     <% next unless com.persisted? %>
-    <li data-comment_id="<%= com.id %>">
-      <%= com.user.present? ? com.user.full_name : 'Guest' %> :
-      <%= com.text %>
 
-      <% if com.user.present? && com.user == current_user %>
-        <%= link_to 'Remove',
-                    product_comment_path(@product, com),
-                    method: :delete,
-                    class: 'btn btn-default',
-                    remote: true
-        %>
-      <% end %>
-    </li>
+
+      <div class="row">
+        <div class="comments col-md-9" id="comments">
+          <h3 class="mb-2"><%= com.user.present? ? com.user.name : 'Guest' %></h3>
+          <!-- comment -->
+          <div class="comment mb-2 row">
+            <div class="comment-avatar col-md-1 col-sm-2 text-center pr-1">
+              <a href=""><img class="mx-auto rounded-circle img-fluid" src="http://demos.themes.guide/bodeo/assets/images/users/m103.jpg" alt="avatar"></a>
+            </div>
+
+              <div class="comment-body">
+                <p>
+                  <%= com.text %>
+                  <br>
+                </p>
+              </div>
+          </div>
+        </div>
+      </div>
   <% end %>
-</ul>
+
+
 
 
 <ul class="comment-errors">
@@ -28,9 +35,16 @@
 </ul>
 
 
-<%= form_for [@product, @comment], remote: true do |f| %>
+<%= form_for [@product, @comment] do |f| %>
+
+  <div class="input-group">
+    <div class="input-group-prepend">
+      <span class="input-group-text">Input text</span>
+    </div>
+    <%= f.text_area :text, placeholder: 'Message',:class=>'form-control' %>
+  </div>
   <br>
-  <%= f.text_area :text, placeholder: 'Message' %>
-  <br>
-  <%= f.submit %>
+  <%= f.submit 'create comment', :class=>'btn btn-secondary' %>
 <% end %>
+
+

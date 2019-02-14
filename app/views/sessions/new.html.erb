@@ -1,21 +1,16 @@
-<div class="shop_form">
-  <% if flash[:alert] %>
+<% if flash[:alert] %>
   <p id="notise"><%= flash[:alert] %></p>
-    <% end %>
-  <%= form_tag do%>
-  <fieldset>
-    <legend>Please Log In</legend>
-    <div>
-      <%= label_tag :name, 'Name' %>
-      <%= text_field_tag :name, params[:name] %>
-    </div>
-    <div>
-    <%= label_tag :password, 'Password:' %>
-      <%=password_field_tag :password, params[:password] %>
-    </div>
-    <div>
-      <%= submit_tag "Login" %>
-    </div>
-  </fieldset>
-    <% end %>
-</div>
+<% end %>
+<%= form_tag do%>
+  <legend><%=t('sessions.new.legend')%></legend>
+  <div class="form-group">
+    <label for="exampleInputEmail1"><%=t('sessions.new.name')%></label>
+    <%= text_field_tag :name, params[:name], :class=>'form-control', :placeholder=>"Enter nick"%>
+    <small id="emailHelp" class="form-text text-muted"><%=t('sessions.new.entername')%></small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1"><%=t('sessions.new.password')%></label>
+    <%=password_field_tag :password, params[:password],:class=>'form-control', :placeholder=>'Password' %>
+  </div>
+  <%= submit_tag t('sessions.new.login'), :class=>'btn btn-primary'%>
+<% end %>

@@ -1,37 +1,26 @@
-<div class="shop_form">
 <%= form_for @user do |form| %>
   <% if user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
       <ul>
-      <% user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
 
-    <fieldset>
-      <legend>Enter User Details</legend>
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, size:40 %>
-  </div>
-
-  <div class="field">
-    <%= form.label :password %>
-    <%= form.password_field :password, size:40 %>
-  </div>
-
-  <div class="field">
-    <%= form.label :password_confirmation %>
-    <%= form.password_field :password_confirmation, size:40 %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-    </fieldset>
-<% end %>
+<div class="form-group">
+  <label for="exampleInputEmail1"><%= t('users.new.name')%></label>
+  <%= form.text_field :name, size:40, :class=>'form-control', :placeholder=>'Enter name'%>
 </div>
+<div class="form-group">
+  <label for="exampleInputPassword1"><%= t('users.new.password')%></label>
+  <%= form.password_field :password, size:40, :class=>'form-control', :placeholder=>"Password"%>
+</div>
+  <div class="form-group">
+    <label for="exampleInputPassword1"><%= t('users.new.password_confirmation')%></label>
+    <%= form.password_field :password_confirmation, size:40, :class=>'form-control', :placeholder=>'password confirmation' %>
+  </div>
+  <%= form.submit t('users.new.submit'), :class=>'btn btn-primary'%>
+<% end %>

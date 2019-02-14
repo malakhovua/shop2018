@@ -3,7 +3,10 @@
 <% @products.each do |product| %>
       <div class="col-md-4">
         <div class="card mb-4 shadow-sm">
-          <%=image_tag product.images[0].file_url, :class=> "card-img-top" %>
+         <!-- <%#=image_tag product.images[0].file_url, :class=> "card-img-top" %>-->
+
+          <%=link_to((image_tag product.images[0].file_url, :class=> "card-img-top"),product_path(id: product.id))%>
+
           <div class="card-body">
             <div class="prod_name">
               <%= link_to product.name, product_path(id: product.id)%>

@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
+  resources :contacts
   get 'admin' => 'admin#index'
+
 
 
   controller :sessions do

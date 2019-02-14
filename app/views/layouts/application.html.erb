@@ -32,6 +32,16 @@
 
 
 <header>
+  <div align="alight">
+
+
+
+
+
+
+
+  </div>
+
   <%= render partial: 'layouts/menu'%>
 </header>
 
@@ -158,13 +168,13 @@
     <li class="list-inline-item">
 
       <% if logged_in? %>
-        <%= button_to "Sign out!", logout_path, method: :delete, class:'btn btn-danger btn-rounded' %>
+        <%= button_to t('layouts.singout'), logout_path, method: :delete, class:'btn btn-danger btn-rounded' %>
       <% else %>
       <li class="list-inline-item">
         <h5 class="mb-1">Register for free</h5>
       </li>
-      <%= link_to "Sign up!", new_user_path, name: nil, class:'btn btn-danger btn-rounded' %>
-      <%= link_to "Sign in!", login_path, name: nil, class:'btn btn-danger btn-rounded' %>
+      <%= link_to t('layouts.singup'), new_user_path, name: nil, class:'btn btn-danger btn-rounded' %>
+      <%= link_to t('layouts.singin'), login_path, name: nil, class:'btn btn-danger btn-rounded' %>
     <% end %>
 
     </li>

@@ -1,4 +1,6 @@
-
+<div class="prod_name">
+<%= link_to @product.name, product_path(id: @product.id)%>
+</div>
   <% @comments.each do |com| %>
     <% next unless com.persisted? %>
 
@@ -9,7 +11,10 @@
           <!-- comment -->
           <div class="comment mb-2 row">
             <div class="comment-avatar col-md-1 col-sm-2 text-center pr-1">
-              <a href=""><img class="mx-auto rounded-circle img-fluid" src="http://demos.themes.guide/bodeo/assets/images/users/m103.jpg" alt="avatar"></a>
+
+              <%=image_tag('medium/thumb/missing.png',  size: 5*5, :class => "mx-auto rounded-circle img-fluid" ) %>
+
+
             </div>
 
               <div class="comment-body">
@@ -39,12 +44,12 @@
 
   <div class="input-group">
     <div class="input-group-prepend">
-      <span class="input-group-text">Input text</span>
+      <span class="input-group-text"><%=t('comments.index.input')%></span>
     </div>
-    <%= f.text_area :text, placeholder: 'Message',:class=>'form-control' %>
+    <%= f.text_area :text, placeholder: t('comments.index.message'),:class=>'form-control' %>
   </div>
   <br>
-  <%= f.submit 'create comment', :class=>'btn btn-secondary' %>
+  <%= f.submit t('comments.index.create'), :class=>'btn btn-secondary' %>
 <% end %>
 
 

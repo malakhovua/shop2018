@@ -7,7 +7,7 @@ default from: 'Sam Ruby malakhovua@gmail.com'
   #
   def received(order)
     @order = order
-    mail to: order.e_mail, subject: 'Shop 2018 Store Order Confirmation'
+    mail to: order.e_mail, subject: 'Eloctronic Shop Store Order Confirmation'
   end
 
   # Subject can be set in your I18n file at config/locales/en.yml
@@ -18,6 +18,6 @@ default from: 'Sam Ruby malakhovua@gmail.com'
   def shipped(order)
     @order = order
 
-    mail to: order.e_mail, subject: 'Shop 2018 Order Shipped'
+    mail to: order.e_mail, subject: 'Eloctronic Shop Order Shipped'
   end
 end

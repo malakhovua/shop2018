@@ -2,7 +2,62 @@
 <p style="background-color: #ddffdd">Thank you for recent order from The "Electronic Shop".
 You order the following item:</p>
 
+<div class="container">
+  <div class="card shopping-cart">
+    <div class="card-header bg-dark text-light">
+      <div class="clearfix"></div>
+    </div>
+    <div class="card-body">
+      <div id="line_items">
+        <%@order.line_items.each do |line_item| %>
+          <div class="row">
+            <div class="col-12 col-sm-12 col-md-2 text-center">
+              <%=image_tag line_item.product.images[0].file_url, :class=> "img-responsive", :alt=>"prewiew", :width=>"120", :height=>"80"%>
+            </div>
+            <div class="col-12 text-sm-center col-sm-12 text-md-left col-md-6">
+              <div class="prod_name">
+                <%= line_item.product.name%>
+              </div>
+              <h4>
+                <small><%=line_item.product.description%></small>
+              </h4>
+            </div>
+            <div class="col-12 col-sm-12 text-sm-center col-md-4 text-md-right row">
+              <div class="col-3 col-sm-3 col-md-6 text-md-right" style="padding-top: 5px">
+                <h6><strong><%= number_to_currency(line_item.product.price)%><span class="text-muted">x</span></strong></h6>
+              </div>
+              <div class="col-2 col-sm-2 col-md-2">
+                <div class="quantity">
+                  <%= line_item.quantity %>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        <% end %>
 
+      </div>
+
+    </div>
+    <div class="card-footer">
+      <div class="coupon col-md-5 col-sm-5 no-padding-left pull-left">
+        <div class="row">
+        </div>
+      </div>
+      <div class="pull-right" style="margin: 10px">
+        <div class="pull-right" style="margin: 5px">
+          <div id="total_price">
+            <%=t('cart.Total_price')%> <b> <%= number_to_currency(@order.total_price) %></b>
+          </div>
+        </div>
+
+        <div id="total_price">
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <p style="background-color: #ddffdd">We'll send you a separate e-mail when you order ship.</p>
 

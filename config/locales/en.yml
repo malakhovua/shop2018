@@ -9,6 +9,11 @@ en:
     orders: "Orders"
     users: "Users"
     search: "Search"
+    singup: "Sing up!"
+    singin: "Sing in!"
+    singout: "Sing out!"
+    sing:    "Login as:"
+
   home:
     welcome: "Welcome to E-Shop"
 
@@ -16,6 +21,7 @@ en:
     add_cart_html: "Add to Cart"
     price: "price: "
     comments: "comments"
+    description: "description"
 
   cart:
     title:    "Your Cart"
@@ -50,3 +56,29 @@ en:
 
 
   thanks: "Thank you for you order."
+
+  sessions:
+    new:
+      legend:       "Please Log In"
+      name:         "Name"
+      password:     "Password"
+      login:        "Login"
+      entername:    "Enter your name"
+
+  users:
+    new:
+      new_user:     "new user"
+      name:         "Name"
+      password:     "Password"
+      password_confirmation: "Password confirmation"
+      submit:       "Submit"
+
+  comments:
+    index:
+      input:        "Input text"
+      message:      "Message"
+      create:       "create comment"
+
+  admin:
+    index:
+      welcome:      "Welcome!"

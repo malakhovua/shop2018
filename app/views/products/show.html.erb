@@ -46,7 +46,25 @@
   <%= button_to t('products.add_cart_html'),line_items_path(product_id: @product), remote: true,
                 class: 'btn btn-primary'%>
   <br><br><br>
-  <%= link_to 'Show comments', product_comments_path(@product) %>
+
+  <div class="card text-center">
+    <div class="card-header">
+      <ul class="nav nav-tabs card-header-tabs">
+        <li class="nav-item">
+          <a class="nav-link active" href="#"><%=t('products.description')%></a>
+        </li>
+        <li class="nav-item">
+          <%= link_to t('products.comments'), product_comments_path(@product), :class => "nav-link" %>
+        </li>
+
+      </ul>
+    </div>
+    <div class="card-body">
+      <%= @product.description%>
+    </div>
+  </div>
+
+
 </div>
 
 

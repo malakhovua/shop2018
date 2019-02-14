@@ -9,6 +9,10 @@ ru:
     orders: "Заказы"
     users: "Пользователи"
     search: "Поиск"
+    singup: "Регистрация!"
+    singin: "Войти!"
+    singout: "Выйти!"
+    sing:    "Вы вошли как:"
   home:
     welcome: "Добро пожаловать в наш интернет магазин"
 
@@ -16,6 +20,8 @@ ru:
     add_cart_html: "В корзину"
     price: "цена: "
     comments: "отзывы"
+    description: "описание товара"
+
 
   cart:
     title:    "Ваша корзина"
@@ -60,3 +66,29 @@ ru:
         pay_type: "Метод оплаты"
 
     thanks: "Спасибо за Ваш заказ."
+
+  sessions:
+    new:
+      legend:       "Пожалуйста, введите ваши данные"
+      name:         "Имя"
+      password:     "Пароль"
+      login:        "Войти"
+      entername:    "введите имя"
+
+  users:
+    new:
+      new_user:     "Новый пользователь"
+      name:         "Имя"
+      password:     "Пароль"
+      password_confirmation: "Подтверждение пароля"
+      submit:       "Зарегистрироваться"
+
+  comments:
+    index:
+      input:        "Введите текст"
+      message:      "Отзыв"
+      create:       "Добавить"
+
+  admin:
+    index:
+      welcome:      "Добро пожаловать!"

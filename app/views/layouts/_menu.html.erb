@@ -2,7 +2,7 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
 
   <div id="_navbar-brand">
-    <a class="navbar-brand" href="#">Electronic<span class="blueColor"> Shop</span></a>
+    <a class="navbar-brand" href="">Electronic<span class="blueColor"> Shop</span></a>
   </div>
 
   <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,12 +23,12 @@
         <a class="nav-link" href="#"><%= t('layouts.news')%></a>
       </li>
       <li class="nav-item active">
-        <a class="nav-link" href="#"><%= t('layouts.contucts')%> </a>
+        <a class="nav-link" <%= link_to t('layouts.contucts'),contacts_path %> </a>
       </li>
     </ul>
     <% if logged_in? %>
       <li class="nav-item active">
-        <a class="nav-link" href="#" style="color: white"> <%= current_user.name %> </a>
+        <a class="nav-link" href="#" style="color: white">   <%=t('layouts.sing')%> <%=current_user.name %> </a>
       </li>
     <%end%>
 
@@ -58,7 +58,7 @@
       </form>-->
 
   <%= form_tag(products_path, method: :get, class: 'form-inline mt-2 mt-md-0') do %>
-    <%= text_field_tag :Product_name, t('layouts.search'), class: 'form-control mr-sm-2' %>
+    <%= text_field_tag :Product_name, nil, placeholder: t('layouts.search'), class: 'form-control mr-sm-2' %>
     <%= submit_tag t('layouts.search'), name: nil, class:'btn btn-outline-success my-2 my-sm-0' %>
   <% end %>
 

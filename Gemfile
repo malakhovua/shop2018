@@ -48,7 +48,7 @@ group :development, :test do
   gem 'jquery'
   gem 'jquery-rails'
   gem 'jquery-ui-rails'
-  gem 'jquery-ui-rails'
+ # gem 'jquery-ui-rails'
   gem 'yarn', '~> 0.1.1'
   gem 'rails-ujs', '~> 0.1.0'
 

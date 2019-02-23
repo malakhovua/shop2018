@@ -35,7 +35,7 @@ class UsersController < ApplicationController
         log_in @user
         format.html {
           redirect_to users_url,
-                      notice: "User #{@user.name} was successfully created." }
+                      notice: "Пользователь #{@user.name} был успешно создан." }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }

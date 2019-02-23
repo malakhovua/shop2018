@@ -67,6 +67,8 @@ end
 
 group :production do
 
+  gem 'mysql2', '~> 0.5.2'
+
 =begin
   gem 'pg'
 =end

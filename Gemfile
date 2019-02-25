@@ -66,8 +66,11 @@ group :development do
 end
 
 group :production do
+  gem 'sqlite3'
+=begin
 
   gem 'mysql2', '~> 0.5.2'
+=end
 
 =begin
   gem 'pg'

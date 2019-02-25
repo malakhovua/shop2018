@@ -20,15 +20,18 @@ test:
   <<: *default
   database: db/test.sqlite3
 
-production:
-  adapter: mysql2
-  encoding: utf8
-  reconnect: false
-  database: eshop_production
-  pool: 5
-  username: alex
-  password: D28m12g2006
-  host: localhost
+#production:
+ # adapter: mysql2
+ # encoding: utf8
+ # reconnect: false
+ # database: eshop_production
+ # pool: 5
+ # username: alex
+ # password: D28m12g2006
+ # host: localhost
 
+production:
+  adapter: sqlite3
+  database: db/production.sqlite3
 
 

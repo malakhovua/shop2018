@@ -11,7 +11,7 @@ test:
 
 production:
   adapter: redis
-  url: redis://redis.example.com:6379
+  url: redis://localhost:6379
 
 local: &local
   adapter: redis

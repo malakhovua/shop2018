@@ -1,7 +1,9 @@
-# config/routes.rb
-mount ActionCable.server => "/cable"
+
 
 Rails.application.routes.draw do
+
+  # config/routes.rb
+  mount ActionCable.server => "/cable"
 
   resources :contacts
   get 'admin' => 'admin#index'

@@ -1,3 +1,6 @@
+# config/routes.rb
+mount ActionCable.server => "/cable"
+
 Rails.application.routes.draw do
 
   resources :contacts
@@ -45,8 +48,7 @@ Rails.application.routes.draw do
 
   root 'home#index', as: 'home_index', via: :all
 
-  # config/routes.rb
-  mount ActionCable.server => "/cable"
+
 
 
 end

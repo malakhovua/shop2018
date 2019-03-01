@@ -93,6 +93,6 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # config/environments/production
-  config.action_cable.allowed_request_origins = ["https://gorails.com"]
+  config.action_cable.allowed_request_origins = ["https://eshop.com"]
 
 end

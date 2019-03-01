@@ -1,4 +1,5 @@
-App.carts = App.cable.subscriptions.create "CartsChannel",
+App.cable = ActionCable.createConsumer("CartsChannel")
+#App.carts = App.cable.subscriptions.create "CartsChannel",
   connected: ->
     # Called when the subscription is ready for use on the server
 

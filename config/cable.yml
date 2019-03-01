@@ -13,8 +13,8 @@ test:
 #  adapter: redis
 #  url: redis://localhost:6379
 
-production: async
-  adapter: redis
+production:
+  adapter: async
 #  url: redis://localhost:6379
 
 

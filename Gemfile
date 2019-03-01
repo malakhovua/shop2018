@@ -67,6 +67,7 @@ end
 
 group :production do
   gem 'sqlite3'
+  gem 'redis', '~> 4.0'
 =begin
 
   gem 'mysql2', '~> 0.5.2'

@@ -74,7 +74,7 @@ group :production do
 =end
 
 
-  gem 'pg'
+  gem 'pg', '~> 0.18.4'
 
 end
 

@@ -41,5 +41,7 @@ production:
   pool: 5
   username: alex
   password: qwe123
+  host:    localhost
+
 
 

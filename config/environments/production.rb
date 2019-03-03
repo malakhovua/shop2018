@@ -94,5 +94,6 @@ Rails.application.configure do
 
   # config/environments/production
   config.action_cable.allowed_request_origins = ["https://eshop.com"]
+  #config.action_cable.allowed_request_origins = ["http://localhost:3001"]
 
 end

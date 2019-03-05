@@ -7,6 +7,7 @@ ruby '2.4.1'
 gem 'rails', '~> 5.2.1'
 # Use sqlite3 as the database for Active Record
 #gem 'pg'
+#gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -45,6 +46,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'pry-nav'
   gem 'awesome_print'
+  gem 'mysql2', '~> 0.4.0'
   #gem 'jquery'
   #gem 'jquery-rails'
   #gem 'jquery-ui-rails'
@@ -66,13 +68,6 @@ group :development do
 end
 
 group :production do
- # gem 'sqlite3'
-
-=begin
-
-  gem 'mysql2', '~> 0.5.2'
-=end
-
 
   gem 'pg', '~> 0.18.4'
 

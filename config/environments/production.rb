@@ -93,7 +93,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # config/environments/production
-  config.action_cable.allowed_request_origins = ["https://eshop.com"]
+  config.action_cable.allowed_request_origins = ["http://37.57.4.35"]
   #config.action_cable.allowed_request_origins = ["http://localhost:3001"]
 
 end

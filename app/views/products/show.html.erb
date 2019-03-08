@@ -43,7 +43,7 @@
     </a>
   </div>
   <br><br><br><br>
-  <%= button_to t('products.add_cart_html'),line_items_path(product_id: @product), remote: true,
+  <%= button_to t('products.add_cart_html'),line_items_path(product_id: @product), method: :post, remote: true,
                 class: 'btn btn-primary'%>
   <br><br><br>
 

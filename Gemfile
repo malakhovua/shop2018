@@ -47,12 +47,7 @@ group :development, :test do
   gem 'pry-nav'
   gem 'awesome_print'
   gem 'mysql2', '~> 0.4.0'
-  #gem 'jquery'
-  #gem 'jquery-rails'
-  #gem 'jquery-ui-rails'
-  #gem 'jquery-ui-rails'
-  #gem 'yarn', '~> 0.1.1'
-  #gem 'rails-ujs', '~> 0.1.0'
+
 
 end
 

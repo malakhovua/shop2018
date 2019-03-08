@@ -2,13 +2,3 @@
 
 if ($('#cart tr').length == 1) {$('#cart').show('blind', 1000);}*/
 
-
-$('#cart').html("<%=j render(@cart)%>");
-$('#line_items').html("<%=j render(@cart.line_items) %>");
-$('#total_price').html("<%=j render('orders/total_price') %>");
-
-/*
-
-$('#current_item').css({'background-color':'#b9cae5'}).
-animate({'background-color':'#87db94'}, 1000);
-*/

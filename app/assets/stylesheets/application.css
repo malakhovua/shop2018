@@ -23,6 +23,17 @@ body {
 .container {
     margin-top: 100px;
 }
+
+@media only screen and (max-width: 600px) {
+    .container {
+        margin-top: 200px;
+    }
+
+    #myCarousel {
+        display: none;
+    }
+}
+
 #locale {
     margin-left: 40px;
 }
@@ -34,11 +45,6 @@ body {
 
 }
 
-@media screen and (max-width: 600px){
-    div.img-home{
-        display: none;
-    }
-}
 
 
 

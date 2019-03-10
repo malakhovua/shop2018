@@ -5,13 +5,8 @@ if ($('#cart tr').length == 1) {$('#cart').show('blind', 1000);}*/
 
 $ ('#cart').html("<%=j render(@cart)%>");
 
-if(!document.getElementById('line_items'))
-    $('#line_items').html("<%=j render(@cart.line_items) %>");
-else alert('');
-
-if(!document.getElementById('total_price'))
-    $('#total_price').html("<%=j render('orders/total_price') %>");
-else alert('');
+if ($('#line_items').length > 0) {$('#line_items').html("<%=j render(@cart.line_items) %>")};
+if ($('#total_price').length > 0) {$('#total_price').html("<%=j render('orders/total_price') %>")};
 
 
 /*

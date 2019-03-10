@@ -8,9 +8,3 @@ $ ('#cart').html("<%=j render(@cart)%>");
 if ($('#line_items').length > 0) {$('#line_items').html("<%=j render(@cart.line_items) %>")};
 if ($('#total_price').length > 0) {$('#total_price').html("<%=j render('orders/total_price') %>")};
 
-
-/*
-
-$('#current_item').css({'background-color':'#b9cae5'}).
-animate({'background-color':'#87db94'}, 1000);
-*/

@@ -93,7 +93,18 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # config/environments/production
-  config.action_cable.allowed_request_origins = ["http://37.57.4.35"]
+  config.action_cable.allowed_request_origins = ["http://eshop.com"]
   #config.action_cable.allowed_request_origins = ["http://localhost:3001"]
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+      address: "smtp.gmail.com",
+      port: 587,
+      domain: "gmail.com",
+      authentication: "plain",
+      user_name: "malakhovua@gmail.com",
+      password: "d28m12g2006",
+      anable_starttls_auto: true
+  }
 
 end
